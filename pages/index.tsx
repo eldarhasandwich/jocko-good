@@ -35,14 +35,7 @@ const Home: React.FC<Props> = (props) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  let url: string
-  if (req) {
-    url = req.url
-  } else {
-    url = window.location.hostname
-  }
-
-  return { props: { url } }
+  return { props: { url: req.headers.host } }
 }
 
 export default Home
